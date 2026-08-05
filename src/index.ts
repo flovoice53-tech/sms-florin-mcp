@@ -25,7 +25,7 @@ function errorText(error: unknown) {
   return { content: [{ type: "text" as const, text: `Error: ${message}` }], isError: true };
 }
 
-const server = new McpServer({ name: "sms-florin-mcp", version: "0.1.0" });
+const server = new McpServer({ name: "sms-florin-mcp", version: "0.1.1" });
 
 server.registerTool(
   "list_services",

@@ -1,6 +1,7 @@
 {
   "name": "sms-florin-mcp",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "mcpName": "io.github.flovoice53-tech/sms-florin-mcp",
   "description": "MCP server for sms-florin — lets AI coding agents (Claude, Cursor, Codex, Windsurf...) rent a real UK phone number and receive SMS/OTP verification codes during automated testing.",
   "keywords": [
     "mcp",
