@@ -1,0 +1,48 @@
+{
+  "name": "sms-florin-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for sms-florin — lets AI coding agents (Claude, Cursor, Codex, Windsurf...) rent a real UK phone number and receive SMS/OTP verification codes during automated testing.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "sms",
+    "sms-verification",
+    "otp",
+    "phone-verification",
+    "test-automation",
+    "qa-testing",
+    "ai-agent"
+  ],
+  "license": "MIT",
+  "author": "sms-florin",
+  "homepage": "https://flo-voice1.com/api-access",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flovoice53-tech/sms-florin-mcp"
+  },
+  "type": "module",
+  "bin": {
+    "sms-florin-mcp": "dist/index.js"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "sms-florin": "^0.1.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  }
+}
