@@ -1,6 +1,7 @@
 # sms-florin-mcp
 
 [![npm version](https://img.shields.io/npm/v/sms-florin-mcp.svg)](https://www.npmjs.com/package/sms-florin-mcp)
+[![npm downloads](https://img.shields.io/npm/dm/sms-florin-mcp.svg)](https://www.npmjs.com/package/sms-florin-mcp)
 
 MCP server for [sms-florin](https://flo-voice1.com) — lets AI coding agents (Claude Code, Claude Desktop, Cursor, Codex, Windsurf, Cline...) rent a real UK phone number and receive an SMS/OTP verification code directly inside an agentic workflow. Useful when an agent is testing a signup/verification flow and needs a real code instead of a mocked one.
 
