@@ -50,6 +50,10 @@ Same shape — point the client's MCP config at `npx -y sms-florin-mcp` with `SM
 
 The agent calls `rent_number({ serviceSlug: "whatsapp" })`, then `wait_for_sms({ rentalId })`, and gets the code back to type into the signup form it's testing.
 
+## Need one for your own API?
+
+I build custom MCP servers like this one — npm package, published to the official Anthropic MCP registry / Docker MCP catalog / Glama, same setup as above. [Details on Fiverr](https://www.fiverr.com/florinbuilds), starting at $90.
+
 ## License
 
 MIT
