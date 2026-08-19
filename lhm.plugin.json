@@ -1,0 +1,137 @@
+{
+  "author": "sms-florin",
+  "description": "MCP server for sms-florin — lets AI coding agents (Claude, Cursor, Codex, Windsurf...) rent a real UK phone number and receive SMS/OTP verification codes during automated testing.",
+  "homepage": "https://flo-voice1.com/api-access",
+  "identifier": "flovoice53-tech-sms-florin-mcp",
+  "name": "sms-florin-mcp",
+  "prompts": [],
+  "resources": [],
+  "tags": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "sms",
+    "sms-verification",
+    "otp",
+    "otp-testing",
+    "phone-verification",
+    "virtual-number",
+    "temporary-phone-number",
+    "disposable-phone-number",
+    "receive-sms",
+    "test-automation",
+    "qa-testing",
+    "ai-agent",
+    "ai-coding-agent",
+    "claude",
+    "claude-code",
+    "cursor",
+    "windsurf"
+  ],
+  "tools": [
+    {
+      "name": "list_services",
+      "title": "List services",
+      "description": "List the services sms-florin can rent a UK phone number for (WhatsApp, Telegram, Google, Discord, etc.), with their prices.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "rent_number",
+      "title": "Rent a phone number",
+      "description": "Rent a real UK phone number for a given service so it can receive an SMS/OTP verification code. Debits the account balance. Returns a rentalId to check with get_rental or wait_for_sms.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "serviceSlug": {
+            "type": "string",
+            "description": "Service slug from list_services, e.g. \"whatsapp\", \"google\", \"discord\"."
+          },
+          "period": {
+            "default": "instant",
+            "description": "instant = one-time rental for a single code; monthly = keep the number for a month.",
+            "type": "string",
+            "enum": [
+              "instant",
+              "monthly"
+            ]
+          }
+        },
+        "required": [
+          "serviceSlug"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "get_rental",
+      "title": "Get rental status",
+      "description": "Check a rental's status, phone number, and any SMS messages received so far.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rentalId": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991,
+            "description": "The rentalId returned by rent_number."
+          }
+        },
+        "required": [
+          "rentalId"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "wait_for_sms",
+      "title": "Wait for SMS",
+      "description": "Block until the first SMS/OTP code arrives on a rental, or time out. The one-step way to rent a number and get the code in an automated flow.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "rentalId": {
+            "type": "integer",
+            "minimum": -9007199254740991,
+            "maximum": 9007199254740991,
+            "description": "The rentalId returned by rent_number."
+          },
+          "timeoutMs": {
+            "default": 120000,
+            "description": "Max time to wait, in ms.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "intervalMs": {
+            "default": 3000,
+            "description": "Poll interval, in ms.",
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "rentalId"
+        ],
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ],
+  "version": "0.1.1"
+}
